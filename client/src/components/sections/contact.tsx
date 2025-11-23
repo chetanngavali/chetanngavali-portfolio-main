@@ -58,7 +58,7 @@ export function Contact() {
       }
 
       const templateParams = {
-        to_email: "alex.chen@example.com",
+        to_email: "chetan.gavali@example.com",
         from_name: data.name,
         from_email: data.email,
         subject: data.subject,
@@ -265,7 +265,7 @@ export function Contact() {
                   </div>
                   <div>
                     <div className="font-semibold">Email</div>
-                    <div className="text-muted-foreground">alex.chen@example.com</div>
+                    <div className="text-muted-foreground">chetan.gavali@example.com</div>
                   </div>
                 </div>
 

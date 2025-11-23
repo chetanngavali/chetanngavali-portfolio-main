@@ -100,7 +100,7 @@ export function Footer() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="flex flex-col md:flex-row items-center justify-between text-sm text-muted-foreground"
         >
-          <p>&copy; 2024 Alex Chen. All rights reserved.</p>
+          <p>&copy; 2024 Chetan Gavali. All rights reserved.</p>
           <p className="flex items-center gap-2 mt-2 md:mt-0">
             Crafted with <Heart className="w-4 h-4 text-red-500 fill-red-500 animate-pulse" /> using React & Framer Motion
           </p>

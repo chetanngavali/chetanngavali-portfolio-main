@@ -41,7 +41,7 @@ export function About() {
           >
             <img
               src={profileImage}
-              alt="Alex Chen Professional Photo"
+              alt="Chetan Gavali Professional Photo"
               className="w-full max-w-md mx-auto rounded-2xl neon-border hover-tilt"
               data-testid="profile-image"
             />

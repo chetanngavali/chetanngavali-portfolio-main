@@ -33,7 +33,7 @@ export function Navigation() {
             transition={{ type: "spring", stiffness: 400 }}
           >
             <div className="text-3xl font-tech font-black relative z-10 logo-3d">
-              <span className="gradient-text">AC</span>
+              <span className="gradient-text"">CG</span>
             </div>
             <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 blur-xl rounded-full"></div>
           </motion.div>
