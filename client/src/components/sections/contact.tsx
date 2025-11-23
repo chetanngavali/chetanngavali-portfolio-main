@@ -1,10 +1,10 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Send, Mail, Phone, MapPin, Linkedin, Github, Instagram, Twitter } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import emailjs from "emailjs-com";
 import { useToast } from "@/hooks/use-toast";
-import { apiRequest } from "@/lib/queryClient";
 import { insertContactSchema, type InsertContact } from "@shared/schema";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -16,7 +16,7 @@ import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 export function Contact() {
   const { ref, isIntersecting } = useIntersectionObserver();
   const { toast } = useToast();
-  const queryClient = useQueryClient();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const form = useForm<InsertContact>({
     resolver: zodResolver(insertContactSchema),
@@ -28,34 +28,55 @@ export function Contact() {
     },
   });
 
-  const contactMutation = useMutation({
-    mutationFn: async (data: InsertContact) => {
-      const response = await apiRequest("POST", "/api/contacts", data);
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+  useEffect(() => {
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+    if (publicKey) {
+      emailjs.init(publicKey);
+    }
+  }, []);
+
+  const onSubmit = async (data: InsertContact) => {
+    try {
+      setIsSubmitting(true);
+
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+
+      if (!serviceId || !templateId) {
+        toast({
+          title: "Configuration Error",
+          description: "Email service is not properly configured.",
+          variant: "destructive",
+        });
+        return;
       }
-      const result = await response.json();
-      return result;
-    },
-    onSuccess: (data) => {
-      toast({
-        title: "Message sent successfully!",
-        description: "I'll get back to you within 24 hours.",
-      });
-      form.reset();
-      queryClient.invalidateQueries({ queryKey: ["/api/contacts"] });
-    },
-    onError: (error: any) => {
+
+      const templateParams = {
+        to_email: "alex.chen@example.com",
+        from_name: data.name,
+        from_email: data.email,
+        subject: data.subject,
+        message: data.message,
+      };
+
+      const response = await emailjs.send(serviceId, templateId, templateParams);
+
+      if (response.status === 200) {
+        toast({
+          title: "Message sent successfully!",
+          description: "I'll get back to you within 24 hours.",
+        });
+        form.reset();
+      }
+    } catch (error: any) {
       toast({
         title: "Failed to send message",
         description: error.message || "Please try again later.",
         variant: "destructive",
       });
-    },
-  });
-
-  const onSubmit = (data: InsertContact) => {
-    contactMutation.mutate(data);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const socialLinks = [
@@ -109,7 +130,7 @@ export function Contact() {
             initial={{ opacity: 0, x: -50 }}
             animate={isIntersecting ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="glass-effect p-8 rounded-xl"
+            className="glass-effect p-8 rounded-xl card-3d"
           >
             <h3 className="text-2xl font-semibold mb-6 text-primary">Send a Message</h3>
             <Form {...form}>
@@ -198,11 +219,11 @@ export function Contact() {
 
                 <Button
                   type="submit"
-                  disabled={contactMutation.isPending}
-                  className="w-full px-8 py-4 bg-gradient-to-r from-primary to-secondary text-primary-foreground rounded-lg font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all hover-tilt"
+                  disabled={isSubmitting}
+                  className="w-full px-8 py-4 bg-gradient-to-r from-primary to-secondary text-primary-foreground rounded-lg font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all button-3d"
                   data-testid="submit-contact-form"
                 >
-                  {contactMutation.isPending ? (
+                  {isSubmitting ? (
                     <>
                       <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
                       Sending...
@@ -225,7 +246,7 @@ export function Contact() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="space-y-8"
           >
-            <div className="glass-effect p-8 rounded-xl">
+            <div className="glass-effect p-8 rounded-xl card-3d">
               <h3 className="text-2xl font-semibold mb-6 text-secondary">Let's Connect</h3>
 
               <div className="space-y-6">
@@ -262,7 +283,7 @@ export function Contact() {
             </div>
 
             {/* Social Media Links */}
-            <div className="glass-effect p-8 rounded-xl">
+            <div className="glass-effect p-8 rounded-xl card-3d">
               <h4 className="text-xl font-semibold mb-6 text-accent">Follow My Journey</h4>
               <div className="grid grid-cols-4 gap-4">
                 {socialLinks.map((social, index) => (
@@ -280,7 +301,7 @@ export function Contact() {
             </div>
 
             {/* Response Time */}
-            <div className="text-center p-6 glass-effect rounded-xl">
+            <div className="text-center p-6 glass-effect rounded-xl card-3d">
               <div className="text-2xl font-tech font-bold text-primary mb-2">&lt; 24h</div>
               <div className="text-muted-foreground">Average Response Time</div>
             </div>
