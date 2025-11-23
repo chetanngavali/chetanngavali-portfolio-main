@@ -12,8 +12,7 @@ export function Navigation() {
   const navItems = [
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
-    { href: "/cybersecurity", label: "Cybersecurity" },
-    { href: "/photography", label: "Photography" },
+    { href: "/expertise", label: "Expertise" },
     { href: "/projects", label: "Projects" },
     { href: "/contact", label: "Contact" },
   ];
