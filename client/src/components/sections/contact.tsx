@@ -32,6 +32,9 @@ export function Contact() {
     const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
     if (publicKey) {
       emailjs.init(publicKey);
+      console.log('EmailJS initialized successfully');
+    } else {
+      console.error('EmailJS public key not found');
     }
   }, []);
 
@@ -41,6 +44,9 @@ export function Contact() {
 
       const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
       const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+
+      console.log('Service ID:', serviceId);
+      console.log('Template ID:', templateId);
 
       if (!serviceId || !templateId) {
         toast({
@@ -59,19 +65,22 @@ export function Contact() {
         message: data.message,
       };
 
+      console.log('Sending email with params:', templateParams);
+
       const response = await emailjs.send(serviceId, templateId, templateParams);
 
-      if (response.status === 200) {
-        toast({
-          title: "Message sent successfully!",
-          description: "I'll get back to you within 24 hours.",
-        });
-        form.reset();
-      }
+      console.log('EmailJS response:', response);
+
+      toast({
+        title: "Message sent successfully!",
+        description: "I'll get back to you within 24 hours.",
+      });
+      form.reset();
     } catch (error: any) {
+      console.error('EmailJS error:', error);
       toast({
         title: "Failed to send message",
-        description: error.message || "Please try again later.",
+        description: error.text || error.message || "Please try again later.",
         variant: "destructive",
       });
     } finally {
