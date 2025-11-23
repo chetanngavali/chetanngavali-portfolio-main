@@ -122,7 +122,7 @@ export function Contact() {
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          animate={isIntersecting ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
@@ -137,7 +137,7 @@ export function Contact() {
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
-            animate={isIntersecting ? { opacity: 1, x: 0 } : {}}
+            whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false, amount: 0.3 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="glass-effect p-8 rounded-xl card-3d"
           >
@@ -251,7 +251,7 @@ export function Contact() {
           {/* Contact Info & Social Links */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
-            animate={isIntersecting ? { opacity: 1, x: 0 } : {}}
+            whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false, amount: 0.3 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             className="space-y-8"
           >

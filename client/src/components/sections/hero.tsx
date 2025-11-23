@@ -47,12 +47,13 @@ export function Hero() {
       <div className="container mx-auto px-6 text-center z-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
-          animate={isIntersecting ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: false, amount: 0.3 }}
           className="animate-slide-up"
         >
           <h1 className="text-6xl md:text-8xl font-tech font-black mb-6 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
-            ALEX CHEN
+            CHETAN GAVALI
           </h1>
           <div className="text-xl md:text-2xl font-mono mb-8 text-muted-foreground">
             <span className="text-primary">Cybersecurity Enthusiast</span> |{" "}
@@ -84,8 +85,9 @@ export function Hero() {
         {/* Scroll Indicator */}
         <motion.div
           initial={{ opacity: 0 }}
-          animate={isIntersecting ? { opacity: 1 } : {}}
+          whileInView={{ opacity: 1 }}
           transition={{ delay: 1.5 }}
+          viewport={{ once: false, amount: 0.5 }}
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce"
         >
           <Link href="/about" data-testid="scroll-indicator">

@@ -160,7 +160,7 @@
     box-shadow: 0 20px 60px rgba(180, 100, 255, 0.4);
   }
 
-  .animate-float {
+  .animate-float [animation:float_6s_ease-in-out_infinite] {
     animation: float 8s ease-in-out infinite;
   }
 
@@ -177,7 +177,7 @@
   }
 
   .animate-pulse-slow {
-    animation: pulseSlow 4s ease-in-out infinite;
+    animation: pulseSlow 4s ease-in-out infinite 4s ease-in-out infinite;
   }
 
   .gradient-text {
@@ -186,7 +186,7 @@
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: gradientShift 5s ease infinite;
+    animation: gradientShift 6s ease-in-out infinite 5s ease infinite;
   }
 
   .nav-3d {
@@ -301,9 +301,29 @@
 @keyframes float {
   0%, 100% { 
     transform: translateY(0px) rotate(0deg); 
+    animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
   }
   50% { 
-    transform: translateY(-30px) rotate(5deg); 
+    transform: translateY(-30px) rotate(5deg);
+    animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+  }
+}
+
+@keyframes smoothFloat {
+  0% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-20px) translateX(10px) rotate(2deg);
+  }
+  50% {
+    transform: translateY(-30px) translateX(0px) rotate(5deg);
+  }
+  75% {
+    transform: translateY(-20px) translateX(-10px) rotate(2deg);
+  }
+  100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
   }
 }
 
@@ -356,4 +376,12 @@
 @keyframes gradientShift {
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
+}
+
+.animate-float {
+  animation: float 6s cubic-bezier(0.42, 0, 0.58, 1) infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulseSlow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }

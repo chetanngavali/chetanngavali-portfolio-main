@@ -89,7 +89,7 @@ export function Projects() {
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          animate={isIntersecting ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
@@ -103,7 +103,7 @@ export function Projects() {
         {/* Project Filter */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={isIntersecting ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="flex flex-wrap justify-center gap-4 mb-12"
         >
@@ -129,7 +129,7 @@ export function Projects() {
             <motion.div
               key={project.title}
               initial={{ opacity: 0, y: 30 }}
-              animate={isIntersecting ? { opacity: 1, y: 0 } : {}}
+              whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.3 }}
               transition={{ duration: 0.8, delay: 0.4 + index * 0.1 }}
               className="group glass-effect rounded-xl overflow-hidden card-3d"
               data-testid={`project-${project.title.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}

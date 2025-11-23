@@ -129,7 +129,7 @@ export function Expertise() {
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          animate={isIntersecting ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
@@ -142,7 +142,7 @@ export function Expertise() {
         {/* Tab Navigation */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={isIntersecting ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="flex justify-center gap-4 mb-16"
         >
@@ -182,7 +182,7 @@ export function Expertise() {
             {/* Terminal Display */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
-              animate={isIntersecting ? { opacity: 1, scale: 1 } : {}}
+              whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: false, amount: 0.3 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="terminal-effect rounded-xl p-8 mb-12 font-mono"
               data-testid="terminal-display"
@@ -209,7 +209,7 @@ export function Expertise() {
                 <motion.div
                   key={area.title}
                   initial={{ opacity: 0, y: 30 }}
-                  animate={isIntersecting ? { opacity: 1, y: 0 } : {}}
+                  whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.3 }}
                   transition={{ duration: 0.8, delay: 0.4 + index * 0.1 }}
                   className="glass-effect p-6 rounded-xl card-3d"
                   data-testid={`expertise-${area.title.toLowerCase().replace(/\s+/g, '-')}`}
@@ -236,7 +236,7 @@ export function Expertise() {
             {/* Certifications */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
-              animate={isIntersecting ? { opacity: 1, y: 0 } : {}}
+              whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.3 }}
               transition={{ duration: 0.8, delay: 0.8 }}
               className="text-center"
             >
@@ -246,7 +246,7 @@ export function Expertise() {
                   <motion.div
                     key={cert}
                     initial={{ opacity: 0, scale: 0.8 }}
-                    animate={isIntersecting ? { opacity: 1, scale: 1 } : {}}
+                    whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: false, amount: 0.3 }}
                     transition={{ duration: 0.5, delay: 1 + index * 0.1 }}
                     className="px-6 py-3 border border-primary text-primary rounded-lg hover:bg-primary hover:text-primary-foreground transition-colors"
                     data-testid={`cert-${cert.toLowerCase()}`}
@@ -272,7 +272,7 @@ export function Expertise() {
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, scale: 0.9 }}
-                  animate={isIntersecting ? { opacity: 1, scale: 1 } : {}}
+                  whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: false, amount: 0.3 }}
                   transition={{ duration: 0.8, delay: 0.2 + index * 0.1 }}
                   className="group relative overflow-hidden rounded-xl hover-tilt cursor-pointer card-3d"
                   onClick={() => openLightbox(index)}
@@ -296,7 +296,7 @@ export function Expertise() {
             {/* Stats */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
-              animate={isIntersecting ? { opacity: 1, y: 0 } : {}}
+              whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.3 }}
               transition={{ duration: 0.8, delay: 1 }}
               className="grid grid-cols-2 md:grid-cols-4 gap-6"
             >

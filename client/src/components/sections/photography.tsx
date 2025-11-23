@@ -110,7 +110,7 @@ export function Photography() {
             <motion.div
               key={index}
               initial={{ opacity: 0, scale: 0.9 }}
-              animate={isIntersecting ? { opacity: 1, scale: 1 } : {}}
+              whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: false, amount: 0.3 }}
               transition={{ duration: 0.8, delay: 0.2 + index * 0.1 }}
               className="group relative overflow-hidden rounded-xl hover-tilt cursor-pointer"
               onClick={() => openLightbox(index)}

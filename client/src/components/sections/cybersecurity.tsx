@@ -77,7 +77,7 @@ export function Cybersecurity() {
         {/* Terminal Display */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
-          animate={isIntersecting ? { opacity: 1, scale: 1 } : {}}
+          whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="terminal-effect rounded-xl p-8 mb-12 font-mono"
           data-testid="terminal-display"
@@ -141,7 +141,7 @@ export function Cybersecurity() {
               <motion.div
                 key={cert}
                 initial={{ opacity: 0, scale: 0.8 }}
-                animate={isIntersecting ? { opacity: 1, scale: 1 } : {}}
+                whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: false, amount: 0.3 }}
                 transition={{ duration: 0.5, delay: 1 + index * 0.1 }}
                 className="px-6 py-3 border border-primary text-primary rounded-lg hover:bg-primary hover:text-primary-foreground transition-colors"
                 data-testid={`cert-${cert.toLowerCase()}`}

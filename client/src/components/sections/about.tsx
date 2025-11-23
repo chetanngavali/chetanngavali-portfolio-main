@@ -35,7 +35,7 @@ export function About() {
           {/* Photo Card */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
-            animate={isIntersecting ? { opacity: 1, x: 0 } : {}}
+            whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false, amount: 0.3 }}
             transition={{ duration: 0.8 }}
             className="relative"
           >
@@ -60,7 +60,7 @@ export function About() {
 
           <motion.div
             initial={{ opacity: 0, x: 50 }}
-            animate={isIntersecting ? { opacity: 1, x: 0 } : {}}
+            whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false, amount: 0.3 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="space-y-6"
           >
@@ -84,7 +84,7 @@ export function About() {
                 <motion.div
                   key={skill.label}
                   initial={{ opacity: 0, y: 20 }}
-                  animate={isIntersecting ? { opacity: 1, y: 0 } : {}}
+                  whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.3 }}
                   transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
                   className="p-4 glass-effect rounded-lg text-center card-3d"
                   data-testid={`skill-${skill.label.toLowerCase()}`}
