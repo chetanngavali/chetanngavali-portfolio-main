@@ -160,8 +160,8 @@
     box-shadow: 0 20px 60px rgba(180, 100, 255, 0.4);
   }
 
-  .animate-float [animation:float_6s_ease-in-out_infinite] {
-    animation: float 8s ease-in-out infinite;
+  .animate-float {
+    animation: float 6s cubic-bezier(0.42, 0, 0.58, 1) infinite;
   }
 
   .animate-glow {
@@ -177,7 +177,7 @@
   }
 
   .animate-pulse-slow {
-    animation: pulseSlow 4s ease-in-out infinite 4s ease-in-out infinite;
+    animation: pulseSlow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
 
   .gradient-text {
@@ -186,7 +186,7 @@
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: gradientShift 6s ease-in-out infinite 5s ease infinite;
+    animation: gradientShift 6s ease-in-out infinite;
   }
 
   .nav-3d {
