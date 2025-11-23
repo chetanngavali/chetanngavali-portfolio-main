@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { Link } from "wouter";
 import { Github, Linkedin, Twitter, Mail, Heart } from "lucide-react";
 
 export function Footer() {
@@ -8,13 +7,6 @@ export function Footer() {
     { icon: Linkedin, href: "#", label: "LinkedIn", color: "from-blue-500 to-blue-700" },
     { icon: Twitter, href: "#", label: "Twitter", color: "from-cyan-400 to-blue-500" },
     { icon: Mail, href: "#", label: "Email", color: "from-primary to-secondary" },
-  ];
-
-  const footerLinks = [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
-    { href: "/projects", label: "Projects" },
-    { href: "/contact", label: "Contact" },
   ];
 
   return (
@@ -28,7 +20,7 @@ export function Footer() {
 
       <div className="container mx-auto px-6 py-16 relative z-10">
         {/* Top Section */}
-        <div className="grid md:grid-cols-3 gap-12 mb-12">
+        <div className="grid md:grid-cols-2 gap-12 mb-12">
           {/* Brand */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -37,39 +29,18 @@ export function Footer() {
             className="text-center md:text-left"
           >
             <div className="text-4xl font-tech font-black mb-4 logo-3d">
-              <span className="gradient-text">ALEX CHEN</span>
+              <span className="gradient-text">CHETAN GAVALI</span>
             </div>
             <p className="text-muted-foreground">
               Building secure digital experiences with creative innovation.
             </p>
           </motion.div>
 
-          {/* Quick Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-center"
-          >
-            <h3 className="font-tech text-xl font-bold mb-4 text-primary">Quick Links</h3>
-            <div className="flex flex-col space-y-2">
-              {footerLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="text-muted-foreground hover:text-primary transition-colors inline-block"
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-          </motion.div>
-
           {/* Social Links */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
             className="text-center md:text-right"
           >
             <h3 className="font-tech text-xl font-bold mb-4 text-secondary">Connect</h3>
