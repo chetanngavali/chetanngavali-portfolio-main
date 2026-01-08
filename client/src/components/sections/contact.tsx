@@ -38,6 +38,10 @@ export function Contact() {
     }
   }, []);
 
+  useEffect(() => {
+    console.log('ENV:', import.meta.env);
+  }, []);
+
   const onSubmit = async (data: InsertContact) => {
     try {
       setIsSubmitting(true);
@@ -58,7 +62,7 @@ export function Contact() {
       }
 
       const templateParams = {
-        to_email: "chetan.gavali@example.com",
+        to_email: "chetanngavali@gmail.com",
         from_name: data.name,
         from_email: data.email,
         subject: data.subject,
@@ -265,7 +269,7 @@ export function Contact() {
                   </div>
                   <div>
                     <div className="font-semibold">Email</div>
-                    <div className="text-muted-foreground">chetan.gavali@example.com</div>
+                    <div className="text-muted-foreground">chetanngavali@gmail.com</div>
                   </div>
                 </div>
 
@@ -275,7 +279,7 @@ export function Contact() {
                   </div>
                   <div>
                     <div className="font-semibold">Phone</div>
-                    <div className="text-muted-foreground">+1 (555) 123-4567</div>
+                    <div className="text-muted-foreground">+91xxxxxxxxxx</div>
                   </div>
                 </div>
 
@@ -285,7 +289,7 @@ export function Contact() {
                   </div>
                   <div>
                     <div className="font-semibold">Location</div>
-                    <div className="text-muted-foreground">San Francisco, CA</div>
+                    <div className="text-muted-foreground">Nashik, Maharashtra, India</div>
                   </div>
                 </div>
               </div>
