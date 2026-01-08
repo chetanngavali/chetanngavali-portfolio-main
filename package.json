@@ -63,7 +63,7 @@
     "lucide-react": "^0.453.0",
     "memorystore": "^1.6.7",
     "next-themes": "^0.4.6",
-    "nodemailer": "^7.0.6",
+    "nodemailer": "^7.0.11",
     "passport": "^0.7.0",
     "passport-local": "^1.0.0",
     "pdfkit": "^0.17.2",
@@ -108,7 +108,7 @@
     "tailwindcss": "^3.4.17",
     "tsx": "^4.19.1",
     "typescript": "5.6.3",
-    "vite": "^5.4.21"
+    "vite": "^7.3.1"
   },
   "optionalDependencies": {
     "bufferutil": "^4.0.8"
