@@ -298,11 +298,11 @@ export function Expertise() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="flex justify-center gap-4 mb-16"
+          className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 mb-16 w-full max-w-lg mx-auto"
         >
           <button
             onClick={() => setActiveTab("cybersecurity")}
-            className={`px-8 py-3 rounded-xl font-semibold transition-all button-3d ${
+            className={`w-full sm:w-auto px-8 py-3 rounded-xl font-semibold transition-all button-3d ${
               activeTab === "cybersecurity"
                 ? "bg-gradient-to-r from-primary to-secondary text-white shadow-lg shadow-primary/50"
                 : "glass-effect hover:bg-primary/20"
@@ -314,7 +314,7 @@ export function Expertise() {
           </button>
           <button
             onClick={() => setActiveTab("photography")}
-            className={`px-8 py-3 rounded-xl font-semibold transition-all button-3d ${
+            className={`w-full sm:w-auto px-8 py-3 rounded-xl font-semibold transition-all button-3d ${
               activeTab === "photography"
                 ? "bg-gradient-to-r from-primary to-secondary text-white shadow-lg shadow-primary/50"
                 : "glass-effect hover:bg-primary/20"
@@ -326,7 +326,7 @@ export function Expertise() {
           </button>
           <button
             onClick={() => setActiveTab("achievements")}
-            className={`px-8 py-3 rounded-xl font-semibold transition-all button-3d ${
+            className={`w-full sm:w-auto px-8 py-3 rounded-xl font-semibold transition-all button-3d ${
               activeTab === "achievements"
                 ? "bg-gradient-to-r from-primary to-secondary text-white shadow-lg shadow-primary/50"
                 : "glass-effect hover:bg-primary/20"
