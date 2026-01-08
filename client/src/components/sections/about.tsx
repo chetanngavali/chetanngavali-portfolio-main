@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Shield, Code, Camera, Palette, Brain, Users } from "lucide-react";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
-import profileImage from "@/assets/profile.jpg";
+import profileImage from "@/assets/profilephoto.png";
 
 export function About() {
   const { ref, isIntersecting } = useIntersectionObserver();
@@ -69,12 +69,10 @@ export function About() {
             </h2>
             <div className="space-y-4 text-muted-foreground">
               <p className="text-lg">
-                I'm a passionate technologist who bridges the gap between security, creativity, and innovation.
-                With expertise in cybersecurity, I protect digital assets while capturing the world through my lens.
+                Aspiring cybersecurity and ethical hacking enthusiast pursuing B.Tech in Computer Engineering, with a strong interest in networking, operating systems, and web application security. Passionate about understanding how systems work, identifying vulnerabilities, and learning practical tools and techniques used in real-world cyber defense.
               </p>
-              <p>
-                My journey spans from implementing robust security protocols to creating visually stunning designs
-                that tell compelling stories. I believe in the power of technology to create positive change.
+              <p className="text-lg">
+                Motivated by curiosity and continuous learning, regularly explores security concepts, hands-on labs, and CTF-style challenges to build practical skills in ethical hacking. Aims to grow into roles such as penetration tester or security analyst, and is open to internships, projects, and collaborations in cybersecurity and related domains.
               </p>
             </div>
 

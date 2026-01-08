@@ -92,7 +92,7 @@ export function Contact() {
     { icon: Linkedin, href: "#", color: "from-blue-500 to-blue-700", shadow: "blue-500/25", name: "linkedin" },
     { icon: Github, href: "#", color: "from-gray-800 to-black", shadow: "gray-500/25", name: "github" },
     { icon: Instagram, href: "#", color: "from-pink-500 to-purple-600", shadow: "pink-500/25", name: "instagram" },
-    { icon: Twitter, href: "#", color: "from-blue-400 to-blue-600", shadow: "blue-400/25", name: "twitter" },
+    { icon: Mail, href: "mailto:chetanngavali@gmail.com", color: "from-red-400 to-red-600", shadow: "red-400/25", name: "mail" },
   ];
 
   return (

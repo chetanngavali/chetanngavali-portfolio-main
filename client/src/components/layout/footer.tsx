@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
-import { Github, Linkedin, Twitter, Mail, Heart } from "lucide-react";
+import { Github, Linkedin, Instagram, Mail, Heart } from "lucide-react";
 
 export function Footer() {
   const socialLinks = [
-    { icon: Github, href: "#", label: "GitHub", color: "from-gray-600 to-gray-800" },
-    { icon: Linkedin, href: "#", label: "LinkedIn", color: "from-blue-500 to-blue-700" },
-    { icon: Twitter, href: "#", label: "Twitter", color: "from-cyan-400 to-blue-500" },
-    { icon: Mail, href: "#", label: "Email", color: "from-primary to-secondary" },
+    { icon: Github, href: "https://github.com/chetanngavali", label: "GitHub", color: "from-gray-600 to-gray-800" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/chetanngavali/", label: "LinkedIn", color: "from-blue-500 to-blue-700" },
+    { icon: Instagram, href: "https://instagram.com/chetanngavali", label: "Instagram", color: "from-pink-500 to-purple-600" },
+    { icon: Mail, href: "mailto:chetanngavali@gmail.com", label: "Email", color: "from-primary to-secondary" },
   ];
 
   return (
@@ -71,9 +71,9 @@ export function Footer() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="flex flex-col md:flex-row items-center justify-between text-sm text-muted-foreground"
         >
-          <p>&copy; 2024 Chetan Gavali. All rights reserved.</p>
+          <p>&copy; 2025 Chetan Gavali. All rights reserved.</p>
           <p className="flex items-center gap-2 mt-2 md:mt-0">
-            Crafted with <Heart className="w-4 h-4 text-red-500 fill-red-500 animate-pulse" /> using React & Framer Motion
+            Crafted By Chetan Gavali <Heart className="w-4 h-4 text-red-500 fill-red-500 animate-pulse" />
           </p>
         </motion.div>
       </div>
