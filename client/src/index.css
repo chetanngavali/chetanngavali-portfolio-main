@@ -116,9 +116,14 @@
   }
 
   .terminal-effect {
-    background: linear-gradient(135deg, rgba(280, 100%, 20%, 0.9), rgba(175, 100%, 20%, 0.95));
+    background: linear-gradient(135deg, var(--terminal-bg-start, #1a1a2e) 0%, var(--terminal-bg-end, #23234d) 100%);
     border: 2px solid var(--cyber-purple);
     font-family: var(--font-mono);
+}
+
+:root {
+  --terminal-bg-start: hsl(280, 100%, 12%);
+  --terminal-bg-end: hsl(175, 100%, 16%);
     box-shadow: 0 0 30px hsl(280, 100%, 65%, 0.3);
   }
 
