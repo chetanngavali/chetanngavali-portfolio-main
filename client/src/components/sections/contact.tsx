@@ -89,9 +89,9 @@ export function Contact() {
   };
 
   const socialLinks = [
-    { icon: Linkedin, href: "#", color: "from-blue-500 to-blue-700", shadow: "blue-500/25", name: "linkedin" },
-    { icon: Github, href: "#", color: "from-gray-800 to-black", shadow: "gray-500/25", name: "github" },
-    { icon: Instagram, href: "#", color: "from-pink-500 to-purple-600", shadow: "pink-500/25", name: "instagram" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/chetanngavali", color: "from-blue-500 to-blue-700", shadow: "blue-500/25", name: "linkedin" },
+    { icon: Github, href: "https://github.com/chetanngavali", color: "from-gray-800 to-black", shadow: "gray-500/25", name: "github" },
+    { icon: Instagram, href: "https://www.instagram.com/chetanngavali", color: "from-pink-500 to-purple-600", shadow: "pink-500/25", name: "instagram" },
     { icon: Mail, href: "mailto:chetanngavali@gmail.com", color: "from-red-400 to-red-600", shadow: "red-400/25", name: "mail" },
   ];
 
@@ -311,7 +311,7 @@ export function Contact() {
 
             {/* Response Time */}
             <div className="text-center p-6 glass-effect rounded-xl card-3d">
-              <div className="text-2xl font-tech font-bold text-primary mb-2">&lt; 24h</div>
+              <div className="text-2xl font-tech font-bold text-primary mb-2">&lt; 2h</div>
               <div className="text-muted-foreground">Average Response Time</div>
             </div>
           </motion.div>
