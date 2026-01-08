@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Send, Mail, Phone, MapPin, Linkedin, Github, Instagram, Twitter } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import emailjs from "emailjs-com";
+// import emailjs from "emailjs-com";
 import { useToast } from "@/hooks/use-toast";
 import { insertContactSchema, type InsertContact } from "@shared/schema";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
@@ -28,63 +28,59 @@ export function Contact() {
     },
   });
 
-  useEffect(() => {
-    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-    if (publicKey) {
-      emailjs.init(publicKey);
-      console.log('EmailJS initialized successfully');
-    } else {
-      console.error('EmailJS public key not found');
-    }
-  }, []);
-
-  useEffect(() => {
-    console.log('ENV:', import.meta.env);
-  }, []);
+  // No EmailJS initialization needed for Web3Forms
 
   const onSubmit = async (data: InsertContact) => {
     try {
       setIsSubmitting(true);
 
-      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-
-      console.log('Service ID:', serviceId);
-      console.log('Template ID:', templateId);
-
-      if (!serviceId || !templateId) {
+      // Replace with your Web3Forms access key
+      const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+      if (!accessKey) {
         toast({
           title: "Configuration Error",
-          description: "Email service is not properly configured.",
+          description: "Web3Forms access key is missing.",
           variant: "destructive",
         });
+        setIsSubmitting(false);
         return;
       }
 
-      const templateParams = {
-        to_email: "chetanngavali@gmail.com",
-        from_name: data.name,
-        from_email: data.email,
-        subject: data.subject,
+      const formData = {
+        access_key: accessKey,
+        name: data.name,
+        email: data.email,
         message: data.message,
+        subject: data.subject,
       };
 
-      console.log('Sending email with params:', templateParams);
-
-      const response = await emailjs.send(serviceId, templateId, templateParams);
-
-      console.log('EmailJS response:', response);
-
-      toast({
-        title: "Message sent successfully!",
-        description: "I'll get back to you within 24 hours.",
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
       });
-      form.reset();
+
+      const result = await response.json();
+      if (result.success) {
+        toast({
+          title: "Message sent successfully!",
+          description: "I'll get back to you within 24 hours.",
+        });
+        form.reset();
+      } else {
+        toast({
+          title: "Failed to send message",
+          description: result.message || "Please try again later.",
+          variant: "destructive",
+        });
+      }
     } catch (error: any) {
-      console.error('EmailJS error:', error);
+      console.error('Web3Forms error:', error);
       toast({
         title: "Failed to send message",
-        description: error.text || error.message || "Please try again later.",
+        description: error.message || "Please try again later.",
         variant: "destructive",
       });
     } finally {
